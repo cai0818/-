@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uniplan.user.mapper.MajorMapper">
+
+    <resultMap id="BaseResultMap" type="com.uniplan.user.domain.Major">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="maName" column="ma_name" jdbcType="VARCHAR"/>
+            <result property="maIntroduction" column="ma_introduction" jdbcType="VARCHAR"/>
+            <result property="maType" column="ma_type" jdbcType="VARCHAR"/>
+            <result property="maNumber" column="ma_number" jdbcType="VARCHAR"/>
+            <result property="maDegreeLevel" column="ma_degree_level" jdbcType="VARCHAR"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,ma_name,ma_introduction,
+        ma_type,ma_number,ma_degree_level,
+        is_delete
+    </sql>
+</mapper>

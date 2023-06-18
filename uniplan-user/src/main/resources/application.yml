@@ -1,0 +1,33 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: userservice
+  cloud:
+    nacos:
+      #是否开启nacos
+      config:
+        enabled: false
+        refresh-enabled: false
+      discovery:
+        enabled: false
+        instance-enabled: false
+      server-addr: localhost:8848
+      #配置数据库
+  datasource:
+    url: jdbc:mysql://43.136.130.87:3306/uniplan-user?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&AllowPublicKeyRetrieval=True
+    username: uniplan
+    password: Uniplan2021
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis-plus:
+  type-aliases-package: com.uniplan.user.domain
+  mapper-locations: src/main/resources/mapper/*.xml
+#feign:
+#  client:
+#    config:
+#      default: # default全局的配置
+#        loggerLevel: BASIC # 日志级别，BASIC就是基本的请求和响应信息
+#  httpclient:
+#    enabled: true # 开启feign对HttpClient的支持
+#    max-connections: 200 # 最大的连接数
+#    max-connections-per-route: 50 # 每个路径的最大连接数

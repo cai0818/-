@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uniplan.user.mapper.UniversityMapper">
+
+    <resultMap id="BaseResultMap" type="com.uniplan.user.domain.University">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="userId" column="user_id" jdbcType="VARCHAR"/>
+            <result property="unName" column="un_name" jdbcType="VARCHAR"/>
+            <result property="unPopularMajors" column="un_popular_majors" jdbcType="CHAR"/>
+            <result property="unIntroduction" column="un_introduction" jdbcType="VARCHAR"/>
+            <result property="unTag" column="un_tag" jdbcType="VARCHAR"/>
+            <result property="unRemoveway" column="un_removeway" jdbcType="VARCHAR"/>
+            <result property="unAnnoucement" column="un_annoucement" jdbcType="VARCHAR"/>
+            <result property="unProspectus" column="un_prospectus" jdbcType="VARCHAR"/>
+            <result property="unProvince" column="un_province" jdbcType="VARCHAR"/>
+            <result property="unTown" column="un_town" jdbcType="VARCHAR"/>
+            <result property="unArea" column="un_area" jdbcType="VARCHAR"/>
+            <result property="unLocation" column="un_location" jdbcType="VARCHAR"/>
+            <result property="unNumber" column="un_number" jdbcType="INTEGER"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,un_name,
+        un_popular_majors,un_introduction,un_tag,
+        un_removeway,un_annoucement,un_prospectus,
+        un_province,un_town,un_area,
+        un_location,un_number,is_delete
+    </sql>
+</mapper>

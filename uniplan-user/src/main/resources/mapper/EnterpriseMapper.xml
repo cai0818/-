@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uniplan.user.mapper.EnterpriseMapper">
+
+    <resultMap id="BaseResultMap" type="com.uniplan.user.domain.Enterprise">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="userId" column="user_id" jdbcType="VARCHAR"/>
+            <result property="officialWebsite" column="official_website" jdbcType="VARCHAR"/>
+            <result property="enName" column="en_name" jdbcType="VARCHAR"/>
+            <result property="enIntroduction" column="en_introduction" jdbcType="VARCHAR"/>
+            <result property="enLocation" column="en_location" jdbcType="VARCHAR"/>
+            <result property="enCareer" column="en_career" jdbcType="VARCHAR"/>
+            <result property="enType" column="en_type" jdbcType="CHAR"/>
+            <result property="enLegalPersonality" column="en_legal_personality" jdbcType="VARCHAR"/>
+            <result property="enBusinessStatus" column="en_business_status" jdbcType="TINYINT"/>
+            <result property="enRegisteredCapital" column="en_registered_capital" jdbcType="INTEGER"/>
+            <result property="enDateOfEstablishment" column="en_date_of_establishment" jdbcType="TIMESTAMP"/>
+            <result property="enRegisteredAddress" column="en_registered_address" jdbcType="VARCHAR"/>
+            <result property="enSocialCreditCode" column="en_social_credit_code" jdbcType="CHAR"/>
+            <result property="enBusinessScope" column="en_business_scope" jdbcType="VARCHAR"/>
+            <result property="enProvince" column="en_province" jdbcType="VARCHAR"/>
+            <result property="enTown" column="en_town" jdbcType="VARCHAR"/>
+            <result property="enArea" column="en_area" jdbcType="VARCHAR"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,official_website,
+        en_name,en_introduction,en_location,
+        en_career,en_type,en_legal_personality,
+        en_business_status,en_registered_capital,en_date_of_establishment,
+        en_registered_address,en_social_credit_code,en_business_scope,
+        en_province,en_town,en_area,
+        is_delete
+    </sql>
+</mapper>

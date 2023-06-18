@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uniplan.user.mapper.RecommendMapper">
+
+    <resultMap id="BaseResultMap" type="com.uniplan.user.domain.Recommend">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="userId" column="user_id" jdbcType="CHAR"/>
+            <result property="recommendedUniversity" column="recommended_university" jdbcType="CHAR"/>
+            <result property="recommendMajor" column="recommend_major" jdbcType="CHAR"/>
+            <result property="recommendEnterprise" column="recommend_enterprise" jdbcType="CHAR"/>
+            <result property="recommendCareer" column="recommend_career" jdbcType="CHAR"/>
+            <result property="isDelete" column="is_delete" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,recommended_university,
+        recommend_major,recommend_enterprise,recommend_career,
+        is_delete
+    </sql>
+</mapper>
