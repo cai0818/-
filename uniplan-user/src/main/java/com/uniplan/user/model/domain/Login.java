@@ -1,7 +1,8 @@
-package com.uniplan.user.domain;
+package com.uniplan.user.model.domain;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -41,7 +42,7 @@ public class Login implements Serializable {
     /**
      * 用户id
      */
-    @TableField(value = "user_id")
+    @TableLogic(value = "user_id")
     private String userId;
 
     @TableField(exist = false)

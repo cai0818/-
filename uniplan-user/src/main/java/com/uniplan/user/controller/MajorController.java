@@ -2,9 +2,8 @@ package com.uniplan.user.controller;
 
 import com.uniplan.user.common.StatusResponse;
 import com.uniplan.user.common.StatusResponseCode;
-import com.uniplan.user.domain.Major;
+import com.uniplan.user.model.domain.Major;
 import com.uniplan.user.service.MajorService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

@@ -2,7 +2,7 @@ package com.uniplan.user.service.impl;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.uniplan.user.domain.Permission;
+import com.uniplan.user.model.domain.Permission;
 import com.uniplan.user.mapper.PermissionMapper;
 import com.uniplan.user.service.PermissionService;
 import org.springframework.stereotype.Service;

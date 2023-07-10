@@ -2,7 +2,7 @@ package com.uniplan.user.controller;
 
 import com.uniplan.user.common.StatusResponse;
 import com.uniplan.user.common.StatusResponseCode;
-import com.uniplan.user.domain.Enterprise;
+import com.uniplan.user.model.domain.Enterprise;
 import com.uniplan.user.service.EnterpriseService;
 import org.springframework.web.bind.annotation.*;
 

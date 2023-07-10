@@ -2,7 +2,7 @@ package com.uniplan.user.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.uniplan.user.domain.Major;
+import com.uniplan.user.model.domain.Major;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

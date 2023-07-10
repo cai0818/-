@@ -1,7 +1,8 @@
-package com.uniplan.user.domain;
+package com.uniplan.user.model.domain;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -24,8 +25,8 @@ public class UserGenneral implements Serializable {
     /**
      * "账号"
      */
-    @TableField(value = "acount")
-    private String acount;
+    @TableField(value = "account")
+    private String account;
 
     /**
      * "用户密码"
@@ -66,7 +67,7 @@ public class UserGenneral implements Serializable {
     /**
      * "删除状态"
      */
-    @TableField(value = "is_delete")
+    @TableLogic(value = "is_delete")
     private Integer isDelete;
 
     @TableField(exist = false)

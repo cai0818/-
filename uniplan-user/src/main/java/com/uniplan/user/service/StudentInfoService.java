@@ -2,8 +2,7 @@ package com.uniplan.user.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.uniplan.user.VO.StudentVO;
-import com.uniplan.user.domain.StudentInfo;
+import com.uniplan.user.model.domain.StudentInfo;
 
 /**
 * @author 97727

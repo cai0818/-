@@ -2,7 +2,7 @@ package com.uniplan.user.service.impl;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.uniplan.user.domain.EnToCa;
+import com.uniplan.user.model.domain.EnToCa;
 import com.uniplan.user.mapper.EnToCaMapper;
 import com.uniplan.user.service.EnToCaService;
 import org.springframework.stereotype.Service;

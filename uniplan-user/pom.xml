@@ -89,19 +89,33 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+<!--                <configuration>-->
+<!--                    <mainClass>com.uniplan.user.UniplanUserApplication</mainClass>-->
+<!--                    <excludes>-->
+<!--                        <exclude>-->
+<!--                            <groupId>org.projectlombok</groupId>-->
+<!--                            <artifactId>lombok</artifactId>-->
+<!--                        </exclude>-->
+<!--                        <execution>-->
+<!--                            <goals>-->
+<!--                                <goal>repackage</goal>-->
+<!--                            </goals>-->
+<!--                        </execution>-->
+<!--                    </excludes>-->
+<!--                </configuration>-->
             </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <!-- src/main/resources下的指定资源放行 -->
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.yml</include>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-        </resources>
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--                &lt;!&ndash; src/main/resources下的指定资源放行 &ndash;&gt;-->
+<!--                <includes>-->
+<!--                    <include>**/*.properties</include>-->
+<!--                    <include>**/*.yml</include>-->
+<!--                    <include>**/*.xml</include>-->
+<!--                </includes>-->
+<!--                <filtering>false</filtering>-->
+<!--            </resource>-->
+<!--        </resources>-->
     </build>
 </project>

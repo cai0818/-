@@ -2,7 +2,7 @@ package com.uniplan.user.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.uniplan.user.domain.Enterprise;
+import com.uniplan.user.model.domain.Enterprise;
 
 import java.util.List;
 
@@ -13,11 +13,11 @@ import java.util.List;
 */
 public interface EnterpriseService extends IService<Enterprise> {
 
-    Boolean addEnterprise(com.uniplan.user.domain.Enterprise enterprise);
+    Boolean addEnterprise(Enterprise enterprise);
 
     List<Enterprise> selectEnterprise();
 
-    Boolean updateEnterprise(com.uniplan.user.domain.Enterprise enterprise);
+    Boolean updateEnterprise(Enterprise enterprise);
 
     Boolean deleteEnterprise(String id);
 }

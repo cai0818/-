@@ -1,4 +1,4 @@
-package com.uniplan.user.VO;
+package com.uniplan.user.model.vo;
 
 import lombok.Data;
 

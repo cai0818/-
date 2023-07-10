@@ -2,7 +2,7 @@ package com.uniplan.user.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.uniplan.user.domain.Recommend;
+import com.uniplan.user.model.domain.Recommend;
 
 /**
 * @author 97727

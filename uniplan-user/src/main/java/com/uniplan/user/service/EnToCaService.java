@@ -2,7 +2,7 @@ package com.uniplan.user.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.uniplan.user.domain.EnToCa;
+import com.uniplan.user.model.domain.EnToCa;
 
 /**
 * @author 97727

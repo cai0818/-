@@ -3,7 +3,7 @@ package com.uniplan.user.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.uniplan.user.domain.Major;
+import com.uniplan.user.model.domain.Major;
 import com.uniplan.user.mapper.MajorMapper;
 import com.uniplan.user.service.MajorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class MajorServiceImpl extends ServiceImpl<MajorMapper, Major>
     MajorMapper majorMapper;
 
     @Override
-    public Boolean addMajor(com.uniplan.user.domain.Major major) {
+    public Boolean addMajor(Major major) {
         return majorMapper.insert(major) > 0;
     }
 
@@ -34,7 +34,7 @@ public class MajorServiceImpl extends ServiceImpl<MajorMapper, Major>
     }
 
     @Override
-    public Boolean updateMajor(com.uniplan.user.domain.Major major) {
+    public Boolean updateMajor(Major major) {
         return majorMapper.updateById(major) > 0;
     }
 

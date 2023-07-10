@@ -2,7 +2,7 @@ package com.uniplan.user.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.uniplan.user.domain.University;
+import com.uniplan.user.model.domain.University;
 
 import java.util.List;
 

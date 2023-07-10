@@ -2,7 +2,7 @@ package com.uniplan.user.mapper;
 
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.uniplan.user.domain.Recommend;
+import com.uniplan.user.model.domain.Recommend;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

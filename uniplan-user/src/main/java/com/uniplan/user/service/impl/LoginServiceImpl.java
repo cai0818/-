@@ -1,7 +1,7 @@
 package com.uniplan.user.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.uniplan.user.domain.Login;
+import com.uniplan.user.model.domain.Login;
 import com.uniplan.user.mapper.LoginMapper;
 import com.uniplan.user.service.LoginService;
 import org.springframework.stereotype.Service;

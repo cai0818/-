@@ -1,7 +1,7 @@
 package com.uniplan.user.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.uniplan.user.domain.Career;
+import com.uniplan.user.model.domain.Career;
 
 /**
 * @author 97727

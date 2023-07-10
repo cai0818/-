@@ -2,8 +2,10 @@ package com.uniplan.user.service;
 
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.uniplan.user.VO.StudentVO;
-import com.uniplan.user.domain.UserGenneral;
+import com.uniplan.user.model.dto.UserLoginRequest;
+import com.uniplan.user.model.dto.UserRegisterRequest;
+import com.uniplan.user.model.vo.StudentVO;
+import com.uniplan.user.model.domain.UserGenneral;
 
 /**
  * @author 97727
@@ -13,7 +15,7 @@ import com.uniplan.user.domain.UserGenneral;
 public interface UserGenneralService extends IService<UserGenneral> {
     String userRegister(UserGenneral user);
 
-    void studentRegister(StudentVO studentVO);
+    void studentRegister(UserRegisterRequest userRegisterRequest);
 
-    String studentLogin(StudentVO studentVo);
+    String studentLogin(UserLoginRequest userLoginRequest);
 }

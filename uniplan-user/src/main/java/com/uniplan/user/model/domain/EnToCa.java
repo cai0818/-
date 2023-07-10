@@ -1,19 +1,20 @@
-package com.uniplan.user.domain;
+package com.uniplan.user.model.domain;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
 
 /**
- * '
- * @TableName un_to_major
+ * 企业岗位对应信息表
+ * @TableName en_to_ca
  */
-@TableName(value ="un_to_major")
+@TableName(value ="en_to_ca")
 @Data
-public class UnToMajor implements Serializable {
+public class EnToCa implements Serializable {
     /**
      * 
      */
@@ -21,21 +22,21 @@ public class UnToMajor implements Serializable {
     private String id;
 
     /**
-     * 专业id
+     * 企业id
      */
-    @TableField(value = "major_id")
-    private String majorId;
+    @TableField(value = "en_id")
+    private String enId;
 
     /**
-     * 高校id
+     * 岗位id
      */
-    @TableField(value = "un_id")
-    private String unId;
+    @TableField(value = "ca_id")
+    private String caId;
 
     /**
      * 删除状态
      */
-    @TableField(value = "is_delete")
+    @TableLogic(value = "is_delete")
     private Integer isDelete;
 
     @TableField(exist = false)

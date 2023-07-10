@@ -1,7 +1,8 @@
-package com.uniplan.user.domain;
+package com.uniplan.user.model.domain;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -53,7 +54,7 @@ public class Recommend implements Serializable {
     /**
      * 删除状态
      */
-    @TableField(value = "is_delete")
+    @TableLogic(value = "is_delete")
     private String isDelete;
 
     @TableField(exist = false)

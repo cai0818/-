@@ -1,7 +1,7 @@
 package com.uniplan.user.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.uniplan.user.domain.Career;
+import com.uniplan.user.model.domain.Career;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

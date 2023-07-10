@@ -2,7 +2,7 @@ package com.uniplan.user.controller;
 
 import com.uniplan.user.common.StatusResponse;
 import com.uniplan.user.common.StatusResponseCode;
-import com.uniplan.user.domain.University;
+import com.uniplan.user.model.domain.University;
 import com.uniplan.user.service.UniversityService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

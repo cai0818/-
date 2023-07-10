@@ -2,7 +2,7 @@ package com.uniplan.user.service.impl;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.uniplan.user.domain.Album;
+import com.uniplan.user.model.domain.Album;
 import com.uniplan.user.mapper.AlbumMapper;
 import com.uniplan.user.service.AlbumService;
 import org.springframework.stereotype.Service;

@@ -3,13 +3,12 @@ package com.uniplan.user.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.uniplan.user.domain.University;
+import com.uniplan.user.model.domain.University;
 import com.uniplan.user.mapper.UniversityMapper;
 import com.uniplan.user.service.UniversityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -25,18 +24,18 @@ public class UniversityServiceImpl extends ServiceImpl<UniversityMapper, Univers
 
 
     @Override
-    public Boolean addUniversity(com.uniplan.user.domain.University university) {
+    public Boolean addUniversity(University university) {
         return universityMapper.insert(university) > 0;
     }
 
     @Override
     public List<University> selectUniversity() {
-        QueryWrapper<com.uniplan.user.domain.University> UniversityQueryWrapper = new QueryWrapper<>();
+        QueryWrapper<University> UniversityQueryWrapper = new QueryWrapper<>();
         return universityMapper.selectList(UniversityQueryWrapper);
     }
 
     @Override
-    public Boolean updateUniversity(com.uniplan.user.domain.University university) {
+    public Boolean updateUniversity(University university) {
         return universityMapper.updateById(university) > 0;
     }
 

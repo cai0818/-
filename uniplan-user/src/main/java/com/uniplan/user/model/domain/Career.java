@@ -1,7 +1,8 @@
-package com.uniplan.user.domain;
+package com.uniplan.user.model.domain;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -41,7 +42,7 @@ public class Career implements Serializable {
     /**
      * 
      */
-    @TableField(value = "is_delete")
+    @TableLogic(value = "is_delete")
     private Integer isDelete;
 
     @TableField(exist = false)
