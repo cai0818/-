@@ -3,7 +3,7 @@ package com.uniplan.user.model.dto;
 import lombok.Data;
 
 @Data
-public class UserLoginRequest {
+public class EnterpriseLoginRequest {
     /**
      * 账号
      */

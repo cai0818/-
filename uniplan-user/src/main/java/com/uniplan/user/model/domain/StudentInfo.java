@@ -1,12 +1,11 @@
 package com.uniplan.user.model.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-
 import java.io.Serializable;
+import lombok.Data;
 
 /**
  * 学生用户信息表
@@ -18,49 +17,42 @@ public class StudentInfo implements Serializable {
     /**
      * 
      */
-    @TableId(value = "id")
+    @TableId
     private String id;
 
     /**
      * 用户id
      */
-    @TableField(value = "user_id")
     private String userId;
 
     /**
      * 用户名
      */
-    @TableField(value = "name")
     private String name;
 
     /**
      * 学历
      */
-    @TableField(value = "degree")
     private Integer degree;
 
     /**
      * 学校
      */
-    @TableField(value = "school")
     private String school;
 
     /**
      * 专业
      */
-    @TableField(value = "major")
     private String major;
 
     /**
      * 学号
      */
-    @TableField(value = "s_number")
     private String sNumber;
 
     /**
      * 删除状态
      */
-    @TableLogic(value = "is_delete")
     private Integer isDelete;
 
     @TableField(exist = false)

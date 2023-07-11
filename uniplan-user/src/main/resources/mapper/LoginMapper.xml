@@ -6,14 +6,15 @@
 
     <resultMap id="BaseResultMap" type="com.uniplan.user.model.domain.Login">
             <id property="id" column="id" jdbcType="VARCHAR"/>
-            <result property="equipemnt" column="equipemnt" jdbcType="CHAR"/>
+            <result property="equipment" column="equipment" jdbcType="CHAR"/>
             <result property="loTime" column="lo_time" jdbcType="CHAR"/>
-            <result property="loUpdatetime" column="lo_updatetime" jdbcType="CHAR"/>
+            <result property="loUpdateTime" column="lo_update_time" jdbcType="CHAR"/>
             <result property="userId" column="user_id" jdbcType="CHAR"/>
+            <result property="isDelete" column="is_delete" jdbcType="TINYINT"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,equipemnt,lo_time,
-        lo_updatetime,user_id
+        id,equipment,lo_time,
+        lo_update_time,user_id,is_delete
     </sql>
 </mapper>

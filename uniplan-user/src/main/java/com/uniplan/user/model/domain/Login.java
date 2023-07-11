@@ -1,12 +1,11 @@
 package com.uniplan.user.model.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-
 import java.io.Serializable;
+import lombok.Data;
 
 /**
  * 登陆信息表
@@ -18,32 +17,33 @@ public class Login implements Serializable {
     /**
      * 
      */
-    @TableId(value = "id")
+    @TableId
     private String id;
 
     /**
      * 登录设备
      */
-    @TableField(value = "equipemnt")
-    private String equipemnt;
+    private String equipment;
 
     /**
      * 创建时间
      */
-    @TableField(value = "lo_time")
     private String loTime;
 
     /**
      * 更新时间
      */
-    @TableField(value = "lo_updatetime")
-    private String loUpdatetime;
+    private String loUpdateTime;
 
     /**
      * 用户id
      */
-    @TableLogic(value = "user_id")
     private String userId;
+
+    /**
+     * 删除状态
+     */
+    private Integer isDelete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

@@ -11,8 +11,8 @@
             <result property="unPopularMajors" column="un_popular_majors" jdbcType="CHAR"/>
             <result property="unIntroduction" column="un_introduction" jdbcType="VARCHAR"/>
             <result property="unTag" column="un_tag" jdbcType="VARCHAR"/>
-            <result property="unRemoveway" column="un_removeway" jdbcType="VARCHAR"/>
-            <result property="unAnnoucement" column="un_annoucement" jdbcType="VARCHAR"/>
+            <result property="unAdjust" column="un_adjust" jdbcType="VARCHAR"/>
+            <result property="unNotice" column="un_notice" jdbcType="VARCHAR"/>
             <result property="unProspectus" column="un_prospectus" jdbcType="VARCHAR"/>
             <result property="unProvince" column="un_province" jdbcType="VARCHAR"/>
             <result property="unTown" column="un_town" jdbcType="VARCHAR"/>
@@ -25,7 +25,7 @@
     <sql id="Base_Column_List">
         id,user_id,un_name,
         un_popular_majors,un_introduction,un_tag,
-        un_removeway,un_annoucement,un_prospectus,
+        un_adjust,un_notice,un_prospectus,
         un_province,un_town,un_area,
         un_location,un_number,is_delete
     </sql>

@@ -20,7 +20,7 @@ spring:
     password: Uniplan2021
     driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis-plus:
-  type-aliases-package: com.uniplan.user.domain
+  type-aliases-package: com.uniplan.user.model.domain
   mapper-locations: src/main/resources/mapper/*.xml
 #feign:
 #  client:

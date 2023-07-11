@@ -1,12 +1,11 @@
 package com.uniplan.user.model.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-
 import java.io.Serializable;
+import lombok.Data;
 
 /**
  * 
@@ -18,25 +17,22 @@ public class Permission implements Serializable {
     /**
      * 
      */
-    @TableId(value = "id")
+    @TableId
     private String id;
 
     /**
      * 角色
      */
-    @TableField(value = "role")
     private String role;
 
     /**
      * 权限
      */
-    @TableField(value = "permission")
     private String permission;
 
     /**
      * 删除状态
      */
-    @TableLogic(value = "is_delete")
     private String isDelete;
 
     @TableField(exist = false)

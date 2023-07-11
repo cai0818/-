@@ -1,12 +1,11 @@
 package com.uniplan.user.model.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-
 import java.io.Serializable;
+import lombok.Data;
 
 /**
  * 专业信息表
@@ -18,43 +17,37 @@ public class Major implements Serializable {
     /**
      * 
      */
-    @TableId(value = "id")
+    @TableId
     private String id;
 
     /**
      * 专业名称
      */
-    @TableField(value = "ma_name")
     private String maName;
 
     /**
      * 专业介绍
      */
-    @TableField(value = "ma_introduction")
     private String maIntroduction;
 
     /**
      * 专业类型
      */
-    @TableField(value = "ma_type")
     private String maType;
 
     /**
      * 专业编号
      */
-    @TableField(value = "ma_number")
     private String maNumber;
 
     /**
      * 专业层次
      */
-    @TableField(value = "ma_degree_level")
     private String maDegreeLevel;
 
     /**
      * 删除状态
      */
-    @TableLogic(value = "is_delete")
     private Integer isDelete;
 
     @TableField(exist = false)
