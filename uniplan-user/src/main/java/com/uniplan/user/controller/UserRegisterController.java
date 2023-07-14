@@ -2,9 +2,9 @@ package com.uniplan.user.controller;
 
 import com.uniplan.user.common.StatusResponse;
 import com.uniplan.user.common.StatusResponseCode;
-import com.uniplan.user.model.dto.EnterpriseRegisterRequest;
-import com.uniplan.user.model.dto.UniversityRegisterRequest;
-import com.uniplan.user.model.dto.UserRegisterRequest;
+import com.uniplan.user.model.dto.user.EnterpriseRegisterRequest;
+import com.uniplan.user.model.dto.user.UniversityRegisterRequest;
+import com.uniplan.user.model.dto.user.UserRegisterRequest;
 import com.uniplan.user.service.UserGeneralService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

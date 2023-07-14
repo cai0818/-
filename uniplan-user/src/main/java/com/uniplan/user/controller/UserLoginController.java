@@ -1,8 +1,8 @@
 package com.uniplan.user.controller;
 
-import com.uniplan.user.model.dto.EnterpriseLoginRequest;
-import com.uniplan.user.model.dto.UniversityLoginRequest;
-import com.uniplan.user.model.dto.UserLoginRequest;
+import com.uniplan.user.model.dto.user.EnterpriseLoginRequest;
+import com.uniplan.user.model.dto.user.UniversityLoginRequest;
+import com.uniplan.user.model.dto.user.UserLoginRequest;
 import com.uniplan.user.common.StatusResponse;
 import com.uniplan.user.common.StatusResponseCode;
 import com.uniplan.user.service.EnterpriseService;

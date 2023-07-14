@@ -4,6 +4,7 @@ package com.uniplan.user.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.uniplan.user.common.ErrorCode;
+import com.uniplan.user.exception.BusinessException;
 import com.uniplan.user.exception.ThrowUtils;
 import com.uniplan.user.mapper.EnterpriseMapper;
 import com.uniplan.user.mapper.StudentInfoMapper;
@@ -13,10 +14,12 @@ import com.uniplan.user.model.domain.Enterprise;
 import com.uniplan.user.model.domain.StudentInfo;
 import com.uniplan.user.model.domain.University;
 import com.uniplan.user.model.domain.UserGeneral;
-import com.uniplan.user.model.dto.EnterpriseRegisterRequest;
-import com.uniplan.user.model.dto.UniversityRegisterRequest;
-import com.uniplan.user.model.dto.UserRegisterRequest;
+import com.uniplan.user.model.dto.user.EnterpriseRegisterRequest;
+import com.uniplan.user.model.dto.user.UniversityRegisterRequest;
+import com.uniplan.user.model.dto.user.UserQueryRequest;
+import com.uniplan.user.model.dto.user.UserRegisterRequest;
 import com.uniplan.user.service.UserGeneralService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -219,8 +222,19 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
         return userGeneral.toString();
     }
 
+    @Override
+    public QueryWrapper<UserGeneral> getQueryWrapper(UserQueryRequest userQueryRequest) {
+        if (userQueryRequest == null) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "请求参数为空");
+        }
+        String id = userQueryRequest.getId();
+        String account = userQueryRequest.getAccount();
+        Integer role = userQueryRequest.getRole();
+        String sortField = userQueryRequest.getSortField();
+        String sortOrder = userQueryRequest.getSortOrder();
+        QueryWrapper<UserGeneral> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq(id != null, "id", id);
+        queryWrapper.like(StringUtils.isNotBlank(account), "account", account);
+        return queryWrapper;
+    }
 }
-
-
-
-

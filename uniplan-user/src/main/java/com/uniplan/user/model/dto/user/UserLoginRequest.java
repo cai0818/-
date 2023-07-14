@@ -1,9 +1,9 @@
-package com.uniplan.user.model.dto;
+package com.uniplan.user.model.dto.user;
 
 import lombok.Data;
 
 @Data
-public class EnterpriseLoginRequest {
+public class UserLoginRequest {
     /**
      * 账号
      */

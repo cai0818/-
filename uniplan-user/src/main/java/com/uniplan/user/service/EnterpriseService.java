@@ -1,8 +1,10 @@
 package com.uniplan.user.service;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.uniplan.user.model.domain.Enterprise;
+import com.uniplan.user.model.dto.enterprise.EnterpriseQueryRequest;
 
 import java.util.List;
 
@@ -20,4 +22,6 @@ public interface EnterpriseService extends IService<Enterprise> {
     Boolean updateEnterprise(Enterprise enterprise);
 
     Boolean deleteEnterprise(String id);
+
+    QueryWrapper<Enterprise> getQueryWrapper(EnterpriseQueryRequest enterpriseQueryRequestQueryRequest);
 }

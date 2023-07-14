@@ -1,14 +1,13 @@
 package com.uniplan.user.service;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.uniplan.user.model.domain.UserGeneral;
-import com.uniplan.user.model.dto.EnterpriseRegisterRequest;
-import com.uniplan.user.model.dto.UniversityRegisterRequest;
-import com.uniplan.user.model.dto.UserLoginRequest;
-import com.uniplan.user.model.dto.UserRegisterRequest;
-import com.uniplan.user.model.vo.StudentVO;
-import com.uniplan.user.model.domain.UserGeneral;
+import com.uniplan.user.model.dto.user.EnterpriseRegisterRequest;
+import com.uniplan.user.model.dto.user.UniversityRegisterRequest;
+import com.uniplan.user.model.dto.user.UserQueryRequest;
+import com.uniplan.user.model.dto.user.UserRegisterRequest;
 
 import javax.servlet.http.HttpSession;
 
@@ -31,4 +30,6 @@ public interface UserGeneralService extends IService<UserGeneral> {
     String enterpriseLogin(String account, String password, HttpSession session);
 
     String universityLogin(String account, String password, HttpSession session);
+
+    QueryWrapper<UserGeneral> getQueryWrapper(UserQueryRequest userQueryRequest);
 }

@@ -1,4 +1,4 @@
-package com.uniplan.user.model.dto;
+package com.uniplan.user.model.dto.user;
 
 import lombok.Data;
 

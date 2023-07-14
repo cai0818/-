@@ -1,8 +1,11 @@
 package com.uniplan.user.service;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.uniplan.user.model.domain.University;
+import com.uniplan.user.model.dto.university.UniversityQueryRequest;
+import com.uniplan.user.model.dto.user.UserQueryRequest;
 
 import java.util.List;
 
@@ -20,4 +23,6 @@ public interface UniversityService extends IService<University> {
     Boolean updateUniversity(University university);
 
     Boolean deleteUniversity(String id);
+
+    QueryWrapper<University> getQueryWrapper(UniversityQueryRequest universityQueryRequest);
 }

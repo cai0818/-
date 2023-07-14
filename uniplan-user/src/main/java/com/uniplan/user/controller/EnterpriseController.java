@@ -1,12 +1,17 @@
 package com.uniplan.user.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.uniplan.user.common.StatusResponse;
 import com.uniplan.user.common.StatusResponseCode;
 import com.uniplan.user.model.domain.Enterprise;
+import com.uniplan.user.model.domain.UserGeneral;
+import com.uniplan.user.model.dto.enterprise.EnterpriseQueryRequest;
+import com.uniplan.user.model.dto.user.UserQueryRequest;
 import com.uniplan.user.service.EnterpriseService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -64,6 +69,17 @@ public class EnterpriseController {
         } else {
             statusResponse.setMsgAndCode(StatusResponseCode.ERROR);
         }
+        return statusResponse;
+    }
+
+    @GetMapping("/select/page")
+    public StatusResponse listUserByPage(@RequestBody EnterpriseQueryRequest enterpriseQueryRequest, HttpServletRequest request) {
+        StatusResponse statusResponse = new StatusResponse();
+        long current = enterpriseQueryRequest.getCurrent();
+        long size = enterpriseQueryRequest.getPageSize();
+        Page<Enterprise> userPage = enterpriseService.page(new Page<>(current, size), enterpriseService.getQueryWrapper(enterpriseQueryRequest));
+        statusResponse.setData(userPage);
+        statusResponse.setMsgAndCode(StatusResponseCode.SUCCESS);
         return statusResponse;
     }
 }

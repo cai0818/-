@@ -1,9 +1,9 @@
-package com.uniplan.user.model.dto;
+package com.uniplan.user.model.dto.user;
 
 import lombok.Data;
 
 @Data
-public class EnterpriseRegisterRequest {
+public class UniversityRegisterRequest {
     /**
      * 账号
      */
