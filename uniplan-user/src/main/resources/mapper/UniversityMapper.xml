@@ -8,7 +8,7 @@
             <id property="id" column="id" jdbcType="VARCHAR"/>
             <result property="userId" column="user_id" jdbcType="VARCHAR"/>
             <result property="unName" column="un_name" jdbcType="VARCHAR"/>
-            <result property="unPopularMajors" column="un_popular_majors" jdbcType="CHAR"/>
+            <result property="unPopularMajors" column="un_popular_majors" jdbcType="VARCHAR"/>
             <result property="unIntroduction" column="un_introduction" jdbcType="VARCHAR"/>
             <result property="unTag" column="un_tag" jdbcType="VARCHAR"/>
             <result property="unAdjust" column="un_adjust" jdbcType="VARCHAR"/>

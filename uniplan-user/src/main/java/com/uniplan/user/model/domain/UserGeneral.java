@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
 
 /**
@@ -39,7 +38,7 @@ public class UserGeneral implements Serializable {
     /**
      * "注册时间"
      */
-    private Date time;
+    private String time;
 
     /**
      * "绑定电话"
@@ -50,11 +49,6 @@ public class UserGeneral implements Serializable {
      * "绑定邮箱"
      */
     private String email;
-
-    /**
-     * "标签"
-     */
-    private String tag;
 
     /**
      * "删除状态"

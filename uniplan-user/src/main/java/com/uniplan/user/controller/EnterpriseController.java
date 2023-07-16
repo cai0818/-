@@ -4,9 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.uniplan.user.common.StatusResponse;
 import com.uniplan.user.common.StatusResponseCode;
 import com.uniplan.user.model.domain.Enterprise;
-import com.uniplan.user.model.domain.UserGeneral;
 import com.uniplan.user.model.dto.enterprise.EnterpriseQueryRequest;
-import com.uniplan.user.model.dto.user.UserQueryRequest;
 import com.uniplan.user.service.EnterpriseService;
 import org.springframework.web.bind.annotation.*;
 

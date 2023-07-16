@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.uniplan.user.model.domain.University;
 import com.uniplan.user.model.dto.university.UniversityQueryRequest;
-import com.uniplan.user.model.dto.user.UserQueryRequest;
 
 import java.util.List;
 

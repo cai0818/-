@@ -49,17 +49,19 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
     UniversityMapper universityMapper;
 
     @Override
-    public String userRegister(UserGeneral UserGeneral) {
+    public String userRegister(UserGeneral userGeneral) {
 
         //ID，注册时间（生成当前时间），逻辑删除（默认0）
         String id = UUID.randomUUID().toString().replace("-", "");
-        Date date = new Date();
-        UserGeneral.setId(id);
+        userGeneral.setId(id);
         //修改个字段，日期全部改为字符串
         SimpleDateFormat dateFormat = new SimpleDateFormat();
-        dateFormat.setTimeZone(TimeZone.getTimeZone("Asia/Shanghai"));
-        UserGeneral.setTime(date);
-        userGeneralMapper.insert(UserGeneral);
+        //获取日期
+        Date now = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String date = sdf.format(now);
+        userGeneral.setTime(date);
+        userGeneralMapper.insert(userGeneral);
         return id;
     }
 

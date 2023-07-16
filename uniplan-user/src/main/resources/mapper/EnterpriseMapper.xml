@@ -12,7 +12,7 @@
             <result property="enIntroduction" column="en_introduction" jdbcType="VARCHAR"/>
             <result property="enLocation" column="en_location" jdbcType="VARCHAR"/>
             <result property="enCareer" column="en_career" jdbcType="VARCHAR"/>
-            <result property="enType" column="en_type" jdbcType="CHAR"/>
+            <result property="enType" column="en_type" jdbcType="VARCHAR"/>
             <result property="enLegalPersonality" column="en_legal_personality" jdbcType="VARCHAR"/>
             <result property="enBusinessStatus" column="en_business_status" jdbcType="TINYINT"/>
             <result property="enRegisteredCapital" column="en_registered_capital" jdbcType="INTEGER"/>

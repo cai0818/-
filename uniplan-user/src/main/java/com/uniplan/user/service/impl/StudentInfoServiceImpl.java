@@ -2,8 +2,8 @@ package com.uniplan.user.service.impl;
 
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.uniplan.user.model.domain.StudentInfo;
 import com.uniplan.user.mapper.StudentInfoMapper;
+import com.uniplan.user.model.domain.StudentInfo;
 import com.uniplan.user.service.StudentInfoService;
 import org.springframework.stereotype.Service;
 

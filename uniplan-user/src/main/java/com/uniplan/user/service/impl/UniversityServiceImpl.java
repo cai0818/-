@@ -9,9 +9,11 @@ import com.uniplan.user.mapper.UniversityMapper;
 import com.uniplan.user.model.domain.University;
 import com.uniplan.user.model.dto.university.UniversityQueryRequest;
 import com.uniplan.user.service.UniversityService;
+import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -22,9 +24,8 @@ import java.util.List;
 @Service
 public class UniversityServiceImpl extends ServiceImpl<UniversityMapper, University>
         implements UniversityService {
-    @Autowired
+    @Resource
     UniversityMapper universityMapper;
-
 
     @Override
     public Boolean addUniversity(University university) {
