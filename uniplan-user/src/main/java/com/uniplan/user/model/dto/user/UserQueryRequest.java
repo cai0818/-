@@ -24,7 +24,7 @@ public class UserQueryRequest extends PageRequest {
     /**
      * "角色"
      */
-    private Integer role;
+    private String role;
 
     /**
      * "注册时间"

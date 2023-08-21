@@ -24,14 +24,11 @@ public class Knife4jConfig {
     public Docket defaultApi2() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(new ApiInfoBuilder()
-                        .title("接口文档")
-                        .description("uniplan")
+                        .title("接口文档").description("uniplan")
                         .version("1.0")
-                        .build())
-                .select()
+                        .build()).select()
                 // 指定 Controller 扫描包路径
                 .apis(RequestHandlerSelectors.basePackage("com.uniplan.user.controller"))
-                .paths(PathSelectors.any())
-                .build();
+                .paths(PathSelectors.any()).build();
     }
 }

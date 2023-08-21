@@ -24,11 +24,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 import java.util.UUID;
+
+import static com.uniplan.user.constant.UserConstant.USER_LOGIN_STATE;
+import static com.uniplan.user.model.enums.UserRoleEnum.*;
 
 /**
  * @author 97727
@@ -87,7 +91,7 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
         //设置用户的信息
         user.setAccount(userRegisterRequest.getAccount());
         user.setPassword(userRegisterRequest.getPassword());
-        user.setRole(0);
+        user.setRole(STUDENT.getValue());
 
         //返回用户id
         String userId = userGeneralService.userRegister(user);
@@ -129,7 +133,7 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
         //设置用户的信息
         user.setAccount(enterpriseRegisterRequest.getAccount());
         user.setPassword(enterpriseRegisterRequest.getPassword());
-        user.setRole(3);
+        user.setRole(ENTERPRISE.getValue());
 
         //返回用户id
         String userId = userGeneralService.userRegister(user);
@@ -166,7 +170,7 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
         //设置用户的信息
         user.setAccount(universityRegisterRequest.getAccount());
         user.setPassword(universityRegisterRequest.getPassword());
-        user.setRole(2);
+        user.setRole(UNIVERSITY.getValue());
 
         //返回用户id
         String userId = userGeneralService.userRegister(user);
@@ -225,13 +229,30 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
     }
 
     @Override
+    public UserGeneral getLoginUser(HttpServletRequest request) {
+        // 先判断是否已登录
+        Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
+        UserGeneral currentUser = (UserGeneral) userObj;
+        if (currentUser == null || currentUser.getId() == null) {
+            throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
+        }
+        // 从数据库查询（追求性能的话可以注释，直接走缓存）
+        String userId = currentUser.getId();
+        currentUser = this.getById(userId);
+        if (currentUser == null) {
+            throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
+        }
+        return currentUser;
+    }
+
+    @Override
     public QueryWrapper<UserGeneral> getQueryWrapper(UserQueryRequest userQueryRequest) {
         if (userQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "请求参数为空");
         }
         String id = userQueryRequest.getId();
         String account = userQueryRequest.getAccount();
-        Integer role = userQueryRequest.getRole();
+        String role = userQueryRequest.getRole();
         String sortField = userQueryRequest.getSortField();
         String sortOrder = userQueryRequest.getSortOrder();
         QueryWrapper<UserGeneral> queryWrapper = new QueryWrapper<>();

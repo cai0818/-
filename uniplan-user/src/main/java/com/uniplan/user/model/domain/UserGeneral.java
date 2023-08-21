@@ -1,21 +1,22 @@
 package com.uniplan.user.model.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * "用户通用信息表"
+ *
  * @TableName user_general
  */
-@TableName(value ="user_general")
+@TableName(value = "user_general")
 @Data
 public class UserGeneral implements Serializable {
     /**
-     * 
+     *
      */
     @TableId
     private String id;
@@ -33,7 +34,7 @@ public class UserGeneral implements Serializable {
     /**
      * "角色"
      */
-    private Integer role;
+    private String role;
 
     /**
      * "注册时间"

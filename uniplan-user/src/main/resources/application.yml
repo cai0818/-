@@ -5,7 +5,7 @@ spring:
     name: userservice
   cloud:
     nacos:
-      #是否开启nacos
+      #是否开启 nacos
       config:
         enabled: false
         refresh-enabled: false
