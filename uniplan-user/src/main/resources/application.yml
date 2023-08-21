@@ -15,9 +15,9 @@ spring:
       server-addr: localhost:8848
       #配置数据库
   datasource:
-    url: jdbc:mysql://43.136.130.87:3306/uniplan-user?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&AllowPublicKeyRetrieval=True
-    username: uniplan
-    password: Uniplan2021
+    url: jdbc:mysql://localhost:3306/uniplan-user?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&AllowPublicKeyRetrieval=True
+    username: root
+    password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis-plus:
   type-aliases-package: com.uniplan.user.model.domain
