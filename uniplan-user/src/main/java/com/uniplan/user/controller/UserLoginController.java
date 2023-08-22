@@ -50,7 +50,7 @@ public class UserLoginController {
     }
 
     @PostMapping("/university")
-    public StatusResponse loginUniversity(@RequestBody UniversityLoginRequest universityLoginRequest, HttpSession session) {
+    public ResponseEntity<StatusResponse> loginUniversity(@RequestBody UniversityLoginRequest universityLoginRequest, HttpSession session) {
         StatusResponse statusResponse = new StatusResponse();
         String account = universityLoginRequest.getAccount();
         String password = universityLoginRequest.getPassword();
@@ -61,11 +61,15 @@ public class UserLoginController {
         } else {
             statusResponse.setMsgAndCode(StatusResponseCode.ERROR);
         }
-        return statusResponse;
+        String jwt=JwtUtil.generateToken(userGeneralService.studentLogin(account,password).getId());
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", jwt);
+        return ResponseEntity.ok().headers(headers).body(statusResponse);
     }
 
     @PostMapping("/enterprise")
-    public StatusResponse loginEnterprise(@RequestBody EnterpriseLoginRequest enterpriseLoginRequest, HttpSession session) {
+
+    public ResponseEntity<StatusResponse>  loginEnterprise(@RequestBody EnterpriseLoginRequest enterpriseLoginRequest, HttpSession session) {
         StatusResponse statusResponse = new StatusResponse();
         String account = enterpriseLoginRequest.getAccount();
         String password = enterpriseLoginRequest.getPassword();
@@ -76,6 +80,9 @@ public class UserLoginController {
         } else {
             statusResponse.setMsgAndCode(StatusResponseCode.ERROR);
         }
-        return statusResponse;
+        String jwt=JwtUtil.generateToken(userGeneralService.studentLogin(account,password).getId());
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", jwt);
+        return ResponseEntity.ok().headers(headers).body(statusResponse);
     }
 }
