@@ -3,6 +3,7 @@ package com.uniplan.user.controller;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.uniplan.user.common.StatusResponse;
 import com.uniplan.user.common.StatusResponseCode;
+import com.uniplan.user.jwt.RoleAuthorization;
 import com.uniplan.user.model.domain.Enterprise;
 import com.uniplan.user.model.dto.enterprise.EnterpriseQueryRequest;
 import com.uniplan.user.service.EnterpriseService;
@@ -33,6 +34,7 @@ public class EnterpriseController {
     }
 
     @GetMapping("/select")
+    @RoleAuthorization({"student"})
     public StatusResponse selectEnterprise(HttpSession session) {
         StatusResponse statusResponse = new StatusResponse();
         List<Enterprise> enterprises = enterpriseService.selectEnterprise();

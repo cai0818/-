@@ -26,6 +26,8 @@ public interface UserGeneralService extends IService<UserGeneral> {
 
     String studentLogin(String account, String password, HttpSession session);
 
+    UserGeneral studentLogin(String account, String password);
+
     String enterpriseLogin(String account, String password, HttpSession session);
 
     String universityLogin(String account, String password, HttpSession session);
@@ -33,4 +35,6 @@ public interface UserGeneralService extends IService<UserGeneral> {
     UserGeneral getLoginUser(HttpServletRequest request);
 
     QueryWrapper<UserGeneral> getQueryWrapper(UserQueryRequest userQueryRequest);
+
+    UserGeneral getUserById(String userid);
 }

@@ -21,6 +21,9 @@ import com.uniplan.user.model.dto.user.UserRegisterRequest;
 import com.uniplan.user.service.UserGeneralService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -28,7 +31,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.TimeZone;
 import java.util.UUID;
 
 import static com.uniplan.user.constant.UserConstant.USER_LOGIN_STATE;
@@ -40,6 +42,7 @@ import static com.uniplan.user.model.enums.UserRoleEnum.*;
  * @createDate 2023-06-11 11:07:35
  */
 @Service
+@CacheConfig(cacheNames = "UserGeneralServiceImpl")
 public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserGeneral> implements UserGeneralService {
     @Resource
     StudentInfoMapper studentInfoMapper;
@@ -53,6 +56,7 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
     UniversityMapper universityMapper;
 
     @Override
+    @CacheEvict(allEntries = true)
     public String userRegister(UserGeneral userGeneral) {
 
         //ID，注册时间（生成当前时间），逻辑删除（默认0）
@@ -71,6 +75,7 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
 
 
     @Override
+    @CacheEvict(allEntries = true)
     public void studentRegister(UserRegisterRequest userRegisterRequest) {
 
         //长度格式校验
@@ -113,6 +118,7 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
     }
 
     @Override
+    @CacheEvict(allEntries = true)
     public void enterpriseRegister(EnterpriseRegisterRequest enterpriseRegisterRequest) {
 
         //长度格式校验
@@ -150,6 +156,7 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
     }
 
     @Override
+    @CacheEvict(allEntries = true)
     public void universityRegister(UniversityRegisterRequest universityRegisterRequest) {
 
         //长度格式校验
@@ -187,6 +194,7 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
     }
 
     @Override
+    @Cacheable
     public String studentLogin(String account, String password, HttpSession session) {
         QueryWrapper<UserGeneral> studentQueryWrapper = new QueryWrapper<>();
         studentQueryWrapper.eq("account", account);
@@ -201,6 +209,19 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
     }
 
     @Override
+    @Cacheable
+    public UserGeneral studentLogin(String account, String password) {
+        QueryWrapper<UserGeneral> studentQueryWrapper = new QueryWrapper<>();
+        studentQueryWrapper.eq("account", account);
+        UserGeneral userGeneral = userGeneralMapper.selectOne(studentQueryWrapper);
+        ThrowUtils.throwIf(userGeneral == null, ErrorCode.NOT_FOUND_ERROR);
+
+
+        //返回脱敏后的用户数据
+        return userGeneral;
+    }
+    @Override
+    @Cacheable
     public String enterpriseLogin(String account, String password, HttpSession session) {
         QueryWrapper<UserGeneral> studentQueryWrapper = new QueryWrapper<>();
         studentQueryWrapper.eq("account", account);
@@ -215,6 +236,7 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
     }
 
     @Override
+    @Cacheable
     public String universityLogin(String account, String password, HttpSession session) {
         QueryWrapper<UserGeneral> studentQueryWrapper = new QueryWrapper<>();
         studentQueryWrapper.eq("account", account);
@@ -229,6 +251,7 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
     }
 
     @Override
+    @Cacheable
     public UserGeneral getLoginUser(HttpServletRequest request) {
         // 先判断是否已登录
         Object userObj = request.getSession().getAttribute(USER_LOGIN_STATE);
@@ -246,6 +269,7 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
     }
 
     @Override
+    @Cacheable
     public QueryWrapper<UserGeneral> getQueryWrapper(UserQueryRequest userQueryRequest) {
         if (userQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "请求参数为空");
@@ -260,4 +284,11 @@ public class UserGeneralServiceImpl extends ServiceImpl<UserGeneralMapper, UserG
         queryWrapper.like(StringUtils.isNotBlank(account), "account", account);
         return queryWrapper;
     }
+    @Override
+    @Cacheable
+    public UserGeneral getUserById(String id) {
+        UserGeneral user = userGeneralMapper.selectById(id);
+        return user;
+    }
+
 }

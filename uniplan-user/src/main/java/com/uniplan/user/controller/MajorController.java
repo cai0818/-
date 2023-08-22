@@ -2,6 +2,7 @@ package com.uniplan.user.controller;
 
 import com.uniplan.user.common.StatusResponse;
 import com.uniplan.user.common.StatusResponseCode;
+
 import com.uniplan.user.model.domain.Major;
 import com.uniplan.user.service.MajorService;
 import org.springframework.web.bind.annotation.*;
@@ -29,18 +30,20 @@ public class MajorController {
         return statusResponse;
     }
 
-    @GetMapping("/select")
-    public StatusResponse selectMajor(HttpSession session) {
-        StatusResponse statusResponse = new StatusResponse();
-        List<Major> majors = majorService.selectMajor();
-        if (majors != null) {
-            statusResponse.setMsgAndCode(StatusResponseCode.SUCCESS);
-            statusResponse.setData(majors);
-        } else {
-            statusResponse.setMsgAndCode(StatusResponseCode.ERROR);
+
+        @GetMapping("/select")
+
+        public StatusResponse selectMajor(HttpSession session) {
+            StatusResponse statusResponse = new StatusResponse();
+            List<Major> majors = majorService.selectMajor();
+            if (majors != null) {
+                statusResponse.setMsgAndCode(StatusResponseCode.SUCCESS);
+                statusResponse.setData(majors);
+            } else {
+                statusResponse.setMsgAndCode(StatusResponseCode.ERROR);
+            }
+            return statusResponse;
         }
-        return statusResponse;
-    }
 
 
     @PostMapping("/delete")

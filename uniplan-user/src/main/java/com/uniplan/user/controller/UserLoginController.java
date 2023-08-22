@@ -1,5 +1,6 @@
 package com.uniplan.user.controller;
 
+import com.uniplan.user.jwt.JwtUtil;
 import com.uniplan.user.model.dto.user.EnterpriseLoginRequest;
 import com.uniplan.user.model.dto.user.UniversityLoginRequest;
 import com.uniplan.user.model.dto.user.UserLoginRequest;
@@ -9,6 +10,8 @@ import com.uniplan.user.service.EnterpriseService;
 import com.uniplan.user.service.UniversityService;
 import com.uniplan.user.service.UserGeneralService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +31,7 @@ public class UserLoginController {
     UniversityService universityService;
 
     @PostMapping("/student")
-    public StatusResponse loginStudent(@RequestBody UserLoginRequest userLoginRequest, HttpSession session) {
+    public ResponseEntity<StatusResponse> loginStudent(@RequestBody UserLoginRequest userLoginRequest, HttpSession session) {
         StatusResponse statusResponse = new StatusResponse();
         String account = userLoginRequest.getAccount();
         String password = userLoginRequest.getPassword();
@@ -39,7 +42,11 @@ public class UserLoginController {
         } else {
             statusResponse.setMsgAndCode(StatusResponseCode.ERROR);
         }
-        return statusResponse;
+        String jwt=JwtUtil.generateToken(userGeneralService.studentLogin(account,password).getId());
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Authorization", jwt);
+        return ResponseEntity.ok().headers(headers).body(statusResponse);
+
     }
 
     @PostMapping("/university")
