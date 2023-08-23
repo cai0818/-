@@ -26,8 +26,11 @@ public class WebConfig implements WebMvcConfigurer {
         // 注册自定义的JwtInterceptor拦截器，将其添加到拦截器链中
         InterceptorRegistration registration = registry.addInterceptor(jwtInterceptor);
         registration.addPathPatterns("/**") // 设置需要拦截的请求路径
+                .excludePathPatterns("/user/register/**")
                 .excludePathPatterns("/user/login/**") // 设置不需要拦截的请求路径
-                .excludePathPatterns("/user/register/**");
+                .excludePathPatterns("/webjars/**")
+                .excludePathPatterns("/doc.html/**")
+                .excludePathPatterns("/swagger-resources");
 
     }
 }

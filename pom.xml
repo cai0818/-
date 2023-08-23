@@ -23,10 +23,14 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
 
+<!--        更新版本否则无法使用接口文档-->
         <!--核心依赖-->
-        <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
-        <spring-cloud-alibaba.version>2.2.8.RELEASE</spring-cloud-alibaba.version>
-        <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
+<!--        <spring-boot.version>2.3.12.RELEASE</spring-boot.version>-->
+<!--        <spring-cloud-alibaba.version>2.2.8.RELEASE</spring-cloud-alibaba.version>-->
+<!--        <spring-cloud.version>Hoxton.SR12</spring-cloud.version>-->
+            <spring-boot.version>2.4.2</spring-boot.version>
+            <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+            <spring-cloud.version> 2020.0.1</spring-cloud.version>
         <java.version>1.8</java.version>
 
         <!--分离出这两个东西，是为了能够在 spring cloud alibaba不更新的时候，及时更新-->

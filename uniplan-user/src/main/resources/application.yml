@@ -37,3 +37,17 @@ mybatis-plus:
 #    max-connections: 200 # 最大的连接数
 #    max-connections-per-route: 50 # 每个路径的最大连接数
 
+
+#配置接口文档
+knife4j:
+  enable: true
+  openapi:
+    title: 接口文档
+    version: v4.0
+    license: Apache 2.0
+    group:
+      test1:
+        group-name: user
+        api-rule: package
+#        api-rule-resources:
+#          - com.uniplan.user
